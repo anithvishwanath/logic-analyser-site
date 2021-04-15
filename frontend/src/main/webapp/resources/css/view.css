@@ -1,0 +1,97 @@
+#codeView {
+    position: relative;
+    width: 100%;
+    height: 400px;
+}
+
+.alert-information {
+	color: #d1ecf1;
+	background-color: #0088CC;
+	border-color: #bee5eb;
+}
+
+.alert-warning {
+	color: #fff3cd;
+	background-color: #F89406;
+	border-color: #ffeeba;
+}
+
+.alert-error {
+	color: #f2dede;
+	background-color: #CC3B2E;
+	border-color: #ebccd1;
+}
+
+.alert-danger {
+	color: #f5c6cb;
+	background-color: #730500;
+	border-color: #f5c6cb;
+}
+
+.selected-line {
+	position: absolute;
+	background: rgba(200,200,100,0.5);
+	z-index: 20
+}
+
+.highlighted-line {
+	position: absolute;
+	background: rgba(37,168,222,0.5);
+	z-index: 20
+}
+
+.marker {
+	position: absolute;
+	z-index: 20;
+	background: rgba(150, 150, 150, 0.34);
+}
+
+.marker.information {
+	border-bottom: 1px solid #015696;
+}
+
+.marker.warning {
+	border-bottom: 2px dotted #bfbf1c;
+}
+
+.marker.error {
+	border-bottom: 2px dotted #f00;
+}
+
+.marker.critical {
+	border-bottom: 2px dotted #f00;
+}
+
+.errorList {
+	overflow: hidden;
+    height: 400px;
+    padding: 0;
+}
+
+.errorList .alert {
+	padding: 4px;
+	white-space:nowrap;
+	margin: 0.3rem 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.errorList a {
+	color: inherit;
+}
+
+@media (max-width: 992px) {
+	.alert .marker-text {
+		max-width: 100px;
+	}
+}
+
+@media (max-width: 768px) {
+	.alert .marker-text {
+		display: none;
+	}
+}
+
+.alert .marker-text {
+	text-overflow: ellipsis;
+}

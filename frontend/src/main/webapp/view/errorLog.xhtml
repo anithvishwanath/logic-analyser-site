@@ -1,0 +1,103 @@
+<ui:composition template="/WEB-INF/templates/dashboard.xhtml" lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+	<ui:param name="selTab" value="errorLog" />
+	<ui:define name="content">
+		<h:outputStylesheet library="css" name="errorLog.css" target="head"/>
+		<h:outputScript library="js" name="errorLog.js" target="head"/>
+		<div class="toolbar">
+			<button id="toggle-info" type="button" class="filter-btn btn btn-xs btn-default active" data-toggle="button" title="Show / Hide informational markers">
+				<span class="fa fa-info-circle text-info"></span>
+				Info - <strong>#{fileViewBean.infoCount}</strong>
+			</button>
+			<button id="toggle-warning" type="button" class="filter-btn btn btn-xs btn-default active" data-toggle="button" title="Show / Hide warning markers">
+				<span class="fa fa-exclamation-circle text-warning"></span>
+				Warnings - <strong>#{fileViewBean.warningCount}</strong>
+			</button>
+			<button id="toggle-error" type="button" class="filter-btn btn btn-xs btn-default active" data-toggle="button" title="Show / Hide error markers">
+				<span class="fa fa-exclamation-triangle text-error"></span>
+				Errors - <strong>#{fileViewBean.errorCount}</strong>
+			</button>
+			<button id="toggle-critical" type="button" class="filter-btn btn btn-xs btn-default active" data-toggle="button" title="Show / Hide critical markers">
+				<span class="fa fa-exclamation-triangle text-critical"></span>
+				Critical Errors - <strong>#{fileViewBean.criticalCount}</strong>
+			</button>
+		</div>
+		<div class="container-fluid">
+			<c:forEach items="#{errorList.markers}" var="marker">
+				<div data-severity="#{marker.severity}">
+					<div class="row">
+						<c:set var="markerLine" value="#{errorList.toLineNumber(marker.location)}"/>
+						<c:set var="markerColumn" value="#{errorList.toColumnNumber(marker.location)}"/>
+						
+						<c:choose>
+							<c:when test="#{marker.severity == 'Informational'}">
+								<c:set var="severityClass" value="marker-info"/>
+								<c:set var="severityIcon" value="fa fa-info-circle"/>
+								<c:set var="severityText" value="Info"/>
+							</c:when>
+							<c:when test="#{marker.severity == 'Warning'}">
+								<c:set var="severityClass" value="marker-warning"/>
+								<c:set var="severityIcon" value="fa fa-exclamation-circle"/>
+								<c:set var="severityText" value="Warning"/>
+							</c:when>
+							<c:when test="#{marker.severity == 'Error'}">
+								<c:set var="severityClass" value="marker-error"/>
+								<c:set var="severityIcon" value="fa fa-exclamation-triangle"/>
+								<c:set var="severityText" value="Error"/>
+							</c:when>
+							<c:when test="#{marker.severity == 'CriticalError'}">
+								<c:set var="severityClass" value="marker-critical"/>
+								<c:set var="severityIcon" value="fa fa-exclamation-triangle"/>
+								<c:set var="severityText" value="Critical"/>
+							</c:when>
+						</c:choose>
+						<span class="label #{severityClass} col-xs-1 markerLabel">
+							<span class="icon #{severityIcon}"></span>
+							<span class="text">
+								<h:outputText value="#{severityText}"/>
+							</span>
+						</span>
+						
+						<span class="col-xs-6 col-md-2 markerLocation">
+							<h:outputLink value="view.xhtml">
+								<f:param name="l" value="#{markerLine}"/>
+								<f:param name="c" value="#{markerColumn}"/>
+								
+								Line #{markerLine} Col #{markerColumn}
+							</h:outputLink>
+						</span>
+						
+						<span class="col-xs-5 col-md-1 col-md-push-8" style="text-align: right;">
+							<c:if test="#{marker.moreInformationLink.isPresent()}">
+								<h:outputLink value="#{marker.moreInformationLink.get()}" target="__blank" rel="external noopener" style="white-space: nowrap">
+									More Info
+									<span class="fa fa-external-link"></span>
+								</h:outputLink>
+							</c:if>
+						</span>
+						
+						<span class="col-xs-12 col-md-8 col-md-pull-1 markerDescription">
+							<span class="caret"></span>
+							<h:outputText value="#{marker.description}"/>
+						</span>
+					</div>
+					<div class="markerSuggestion hidden">
+						<c:if test="#{marker.suggestedFix.isPresent()}">
+							<h:outputText value="#{marker.suggestedFix.get()}"/>
+						</c:if>
+						<c:if test="#{!marker.suggestedFix.isPresent()}">
+							No suggestion is available
+						</c:if>
+					</div>
+				</div>	
+			</c:forEach>
+		</div>
+	</ui:define>
+</ui:composition>

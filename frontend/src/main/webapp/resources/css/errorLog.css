@@ -1,0 +1,96 @@
+.markerLabel {
+	max-width: 6em;
+}
+
+.markerLabel .text {
+	
+}
+
+.markerLabel .icon {
+	display: none;
+}
+
+.markerLocation {
+	/*width: 10em;*/
+}
+
+.marker-info {
+	background-color: #0088CC;
+}
+
+.marker-warning {
+	background-color: #F89406;
+}
+
+.marker-error {
+	background-color: #CC3B2E;
+}
+
+.marker-critical {
+	background-color: #730500;
+}
+
+.text-info {
+	color: #0088CC;
+}
+
+.text-warning {
+	color: #F89406;
+}
+
+.text-error {
+	color: #CC3B2E;
+}
+
+.text-critical {
+	color: #730500;
+}
+
+
+.markerSuggestion {
+	padding: 5px;
+	
+	border: 1px solid #ddd;
+	background-color: #f5f5f5;
+	margin-bottom: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.markerDescription {
+	
+}
+
+.markerDescription .caret {
+	margin-right: 5px;
+}
+
+.markerDescription:hover {
+	text-decoration: underline;
+}
+
+@media (max-width: 992px) {
+	.markerLabel .text {
+		max-width: 100px;
+	}
+}
+
+@media (max-width: 768px) {
+	.markerLabel .text {
+		display: none;
+	}
+	
+	.markerLabel {
+		max-width: 3em;
+	}
+	.markerLabel .icon {
+		display: inline;
+	}
+}
+
+.toolbar {
+	border-bottom: 1px solid #ddd;
+    margin-bottom: 0.5rem;
+    padding: 4px;
+    background-color: #f5f5f5;
+}

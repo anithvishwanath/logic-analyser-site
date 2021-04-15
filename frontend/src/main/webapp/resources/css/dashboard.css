@@ -1,0 +1,64 @@
+@CHARSET "UTF-8";
+
+.card {
+	border-radius: 5px;
+	text-align: left;
+	margin-bottom: 15px;
+	padding: 5px;
+	color: #000;
+	background-color: #ddd;
+}
+
+.card .card-icon {
+	margin: 8px;
+}
+
+.card .card-icon,.card-value {
+	font-size: 30px;
+	vertical-align:middle;
+}
+
+.card .card-title {
+	font-size: 30px;
+	vertical-align:middle;
+	text-align: right;
+}
+
+.card.ok {
+	background-color: #5cb85c;
+	color: #fff;
+}
+
+.card.error {
+	background-color: #CC3B2E;
+	color: #fff;
+}
+
+.card.warning {
+	background-color: #F89406;
+	color: #fff;
+}
+
+.card.lines {
+	background-color: #0091d2;
+	color: #fff;
+}
+
+.card.tags {
+	background-color: #37bc9b;
+	color: #fff;
+}
+
+.page-head-line {
+	padding-bottom: 4px;
+	border-bottom: 1px solid #0091d2;
+	margin-bottom: 20px;
+	margin-top: -15px;
+}
+
+.page-head-line .title {
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #0091d2;
+	font-size: 20px;
+}

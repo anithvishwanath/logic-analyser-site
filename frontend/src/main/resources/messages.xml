@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration xmlns="http://arp-web-analyser.net"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://arp-web-analyser.net configuration.xsd">
+	
+	<rule>
+		<id>placement.block-inside-inline</id>
+		<severity>critical</severity>
+		<description>
+			Block element such as &lt;p&gt; or &lt;div&gt; 
+			cannot be placed inside inline element such
+			as &lt;span&gt;
+		</description>
+		<url>https://www.tipsandtricks-hq.com/10-common-html-mistakes-to-avoid-1980</url>
+		<suggestion>
+			Re-order the tags so that inline elements are 
+			within the block elements. If the outer inline
+			element was being used to apply styling or
+			to group elements, consider switching to
+			a block element. For example moving from
+			&lt;span&gt; to &lt;div&gt;
+		</suggestion>
+	</rule>
+	<rule>
+		<id>attributes.img-alt</id>
+		<severity>error</severity>
+		<description>
+			Image tags should provide alternate text.
+			Alternate text is useful for if images
+			do not load, to see what they are about.
+		</description>
+	</rule>
+	<rule>
+		<id>doctype</id>
+		<severity>error</severity>
+		<description>
+			The Doctype tag must be present and be the first element.
+		</description>
+	</rule>
+	<rule>
+		<id>placement.form</id>
+		<severity>critical</severity>
+		<description>
+			Form tags must not be placed directly inside a table element
+		</description>
+	</rule>
+	<rule>
+		<id>linebreak</id>
+		<severity>error</severity>
+		<description>
+			Do not use multiple sequential line break tags in a paragraph.
+		</description>
+		<suggestion>
+			If a larger break was wanted, start a new paragraph tag.
+		</suggestion>
+	</rule>
+	<rule>
+		<id>style.format-tags</id>
+		<severity>warning</severity>
+		<description>
+			&lt;strong&gt; and &lt;em&gt; should be used instead of &lt;b&gt; and &lt;i&gt;
+		</description>
+	</rule>
+	<rule>
+		<id>attributes.script-type</id>
+		<severity>warning</severity>
+		<description>
+			Scripts should specify their type. e.g. text/javascript
+		</description>
+		<suggestion>
+			Add the appropriate type to your script element. For example: &lt;script type="text/javascript"&gt;...
+		</suggestion>
+	</rule>
+	<rule>
+		<id>selectors.overspecified</id>
+		<severity>warning</severity>
+		<description>
+			Selectors should be as simple as possible.
+		</description>
+		<suggestion>
+			If multiple IDs are present in the selector, since IDs should be unique, only the 
+			part of the select from the last ID is needed. For example: "#id1 #id2 .someclass {}"
+			would be identical to "#id2 .someclass".
+			Similarly, following the DOM with the selector is bad practice as it ties the style
+			too much to the DOM. For example the following is bad ".aclass div div span ul li a"
+		</suggestion>
+	</rule>
+</configuration>

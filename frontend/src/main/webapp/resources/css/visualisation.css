@@ -1,0 +1,22 @@
+.tagvis-legend {
+	margin: 0 1em;
+}
+
+.tagvis-legend .gradient {
+	background: #4285f4;
+	background: -moz-linear-gradient(left, #4285f4 0%, #cc3b2e 100%);
+	background: -webkit-linear-gradient(left, #4285f4 0%,#cc3b2e 100%);
+	background: linear-gradient(to right, #4285f4 0%,#cc3b2e 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4285f4', endColorstr='#cc3b2e',GradientType=1 );
+	
+	width: 100%;
+	height: 2rem;
+}
+
+.freq-header {
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	text-align: center;
+	color: #333;
+	margin-top: 40px;
+}

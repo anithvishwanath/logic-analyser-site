@@ -1,0 +1,75 @@
+h2 {
+	margin-top: 30px;
+}
+
+.upload-container {
+	margin-top: 25px;
+}
+
+.validation-message {
+	color: red;
+	font-weight: bold;
+	display: block;
+}
+
+.disclaimer {
+	 display: block;
+}
+
+.disclaimer-text {
+	font-size: 11.5px;
+	background-color: #ededed;
+}
+
+.button-primary {
+	padding: 12px 12px;
+}
+
+pre {
+	display: inline;
+}
+
+.footer {
+	margin-top: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.file-display {
+	width: 100%;
+}
+
+.file-display:empty:before {
+	content: "No file selected";
+	font-style: italic;
+}
+
+.spacer {
+	margin-bottom: 15px;
+}
+
+.error-message {
+	padding: 4px;
+	margin: 0.3rem 0;
+}
+
+.error-message li {
+	list-style: none;
+}
+
+.error-message li:before {
+	content: "\f071";
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transform: translate(0, 0);
+	padding-right: 4px;
+}
+
+.centered {
+	margin-top: 10%;
+}
